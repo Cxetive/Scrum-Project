@@ -1,0 +1,16 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ECF2FF;
+}
+
+.container {
+    width: 736px;
+    height: 512px;
+    margin: 0px auto;
+    background-color: white;
+}
