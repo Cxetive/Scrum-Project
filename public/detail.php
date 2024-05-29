@@ -19,7 +19,7 @@
 
     ?>
 <div class="container">
-    <a href="index.php">Terug</a>
+    <a href="client.php">Terug</a>
     <div class="box">
     <h1>Klant: <?php echo $customerData[0]['voornaam'] . " " . $customerData[0]['achternaam']; ?></h1>
     <p>Email: <?php echo $customerData[0]['email']; ?></p>
