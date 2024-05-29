@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inlog pagina</title>
+    <title>Nieuw profiel aanmaken</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
         * {
@@ -58,84 +58,55 @@
             text-align: center;
             color: white;
         }
-        h2{
-            color: white;
-            margin-bottom: 20px;
-        }
 
-        input[type="email"], input[type="password"] {
-            
+        input[type="text"], input[type="password"], input[type="email"], input[type="number"], select, textarea {
             padding: 10px;
             width: 90%;
+            margin-bottom: 15px;
             border: 1px solid #ccc;
             border-radius: 4px;
         }
 
         input[type="submit"] {
             padding: 10px 20px;
-            
             border: none;
             border-radius: 4px;
             background-color: white;
-            
             cursor: pointer;
-            width: 150px;
+            width: 90%;
+            max-width: 150px;
+            margin-bottom: 10px;
         }
 
         input[type="submit"]:hover {
-            background-color: white;
+            background-color: #ccc;
         }
 
-        .register-form {
-            display: flex;
-            justify-content: center;
-            width: 100%;
+        label {
+            color: white;
+            margin-bottom: 5px;
+        }
+
+        textarea {
+            height: 60px;
         }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <h1>Welkom op de pagina</h1>
+        <h1>Nieuw profiel aanmaken</h1>
         <div class="achtergrond">
             <form method="POST">
-                <h2>User inlog</h2>
+                <input type="email" name="email" placeholder="Email"><br>
+                <input type="password" name="wachtwoord" placeholder="Wachtwoord"><br>
                 
-                <input type="email" name="email" placeholder="Email" ><br>
-                <input type="password" name="wachtwoord" placeholder="Wachtwoord"><br><br>
-                <input type="submit" value="Login" name="login"><br>
-                <input type="submit" value="Nieuwe gebruiker" name="register">
-                <br>
+
+                <input type="submit" value="Aanmaken" name="aanmaken">
             </form>
         </div>
-        
     </div>
+
 </body>
 
 </html>
-
-<?php
-
-include_once ('../src/accounts.php');
-
-if(isset($_POST["login"]))
-{
-    $email = $_POST["email"];
-    $wachtwoord = $_POST["wachtwoord"];
-
-    $account = new accounts();
-    $loginInformation = $account->getAccount($email);
-    
-    if($loginInformation[0]['wachtwoord'] == hash('sha256', $wachtwoord))
-    {
-       header("Location: client.php");
-    }
-    else
-    {
-        echo "Wachtwoord of email is fout";
-    }
-
-    
-    
-
-}
