@@ -13,7 +13,7 @@
             box-sizing: border-box;
             font-family: "Roboto", sans-serif;
             font-weight: 400;
-            font-style: normal;f
+            font-style: normal;
         }
 
         body {
