@@ -7,7 +7,7 @@ if(isset($_GET['customerID'])){
 
     if($customerDelete != true){
         echo "Klant is verwijderd";
-        header("Location: index.php");
+        header("Location: client.php");
     } else {
         echo "Klant is niet verwijderd";
     }

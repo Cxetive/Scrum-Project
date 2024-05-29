@@ -27,7 +27,7 @@
 
         if ($customer->updateCustomer($_GET['customerID']) == false) {
             echo "Klant is bijgewerkt";
-            header("Location: index.php");
+            header("Location: client.php");
         } else {
             echo "Klant is niet bijgewerkt";
         }

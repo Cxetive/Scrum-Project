@@ -45,7 +45,7 @@
 
         if ($newCustomer->saveCustomer() == false) {
             echo "Klant is opgeslagen";
-            header("Location: index.php");
+            header("Location: client.php");
         } else {
             echo "Klant is niet opgeslagen";
         }
