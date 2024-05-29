@@ -64,7 +64,7 @@
         }
 
         input[type="email"], input[type="password"] {
-            
+            margin-top: 10px;
             padding: 10px;
             width: 90%;
             border: 1px solid #ccc;
@@ -73,11 +73,10 @@
 
         input[type="submit"] {
             padding: 10px 20px;
-            
+            margin-top: 15px;
             border: none;
             border-radius: 4px;
             background-color: white;
-            
             cursor: pointer;
             width: 150px;
         }
@@ -107,6 +106,27 @@
                 <input type="submit" value="Nieuwe gebruiker" name="register">
                 <br>
             </form>
+            <?php
+            include_once ('../src/accounts.php');
+            if(isset($_POST["login"]))
+            {
+                $email = $_POST["email"];
+                $wachtwoord = $_POST["wachtwoord"];
+            
+                $account = new accounts();
+                $loginInformation = $account->getAccount($email);
+                
+                if(isset($loginInformation[0]) && $loginInformation[0]['wachtwoord'] == hash('sha256', $wachtwoord))
+                {
+                   header("Location: client.php");
+                   exit();
+                }
+                else 
+                {
+                    echo "Wachtwoord of email is fout";
+                }
+            }
+            ?>
         </div>
         
     </div>
@@ -118,24 +138,3 @@
 
 include_once ('../src/accounts.php');
 
-if(isset($_POST["login"]))
-{
-    $email = $_POST["email"];
-    $wachtwoord = $_POST["wachtwoord"];
-
-    $account = new accounts();
-    $loginInformation = $account->getAccount($email);
-    
-    if($loginInformation[0]['wachtwoord'] == hash('sha256', $wachtwoord))
-    {
-       header("Location: client.php");
-    }
-    else
-    {
-        echo "Wachtwoord of email is fout";
-    }
-
-    
-    
-
-}
