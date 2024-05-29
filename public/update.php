@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="styles/bewerk.css">
 </head>
 
 <body>
@@ -24,7 +25,7 @@
         $customer->setEmail($_POST['email']);
         $customer->setKlus($_POST['klus']);
 
-        if ($customer->updateCustomer($_GET['customerID']) != false) {
+        if ($customer->updateCustomer($_GET['customerID']) == false) {
             echo "Klant is bijgewerkt";
             header("Location: index.php");
         } else {
@@ -33,6 +34,9 @@
     }
 
     ?>
+    <div class="container">
+
+    
     <form action="#" method="post">
         <label for="voornaam">Voornaam:</label>
         <input type="text" name="voornaam" value="<?php echo $customerData[0]['voornaam']; ?>" />
@@ -47,8 +51,9 @@
         <input type="text" name="klus" value="<?php echo $customerData[0]['klus']; ?>" />
         <br />
 
-        <input type="submit" name="updateCustomer" />
+        <input class="submit" type="submit" name="updateCustomer" />
     </form>
+    </div>
 </body>
 
 </html>

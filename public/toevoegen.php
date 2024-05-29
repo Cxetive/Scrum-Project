@@ -5,9 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="styles/toevoegen.css">
 </head>
 
 <body>
+    <div class="container">
+
+   
     <form action="#" method="post">
         <label for="voornaam">Voornaam:</label>
         <input type="text" name="voornaam" />
@@ -26,6 +30,7 @@
 
         <input type="submit" name="saveCustomer" />
     </form>
+    </div>
 
     <?php
     include("../src/customer.php");

@@ -68,7 +68,7 @@ class Customer extends Database
         $email = $this->getEmail();
         $klus = $this->getKlus();
 
-        $query = "UPDATE customers 
+        $query = "UPDATE klanten 
         SET voornaam = '$voornaam', achternaam = '$achternaam', email = '$email', klus = '$klus'
         WHERE id = $id";
         // Return true if the query is successful, else return false

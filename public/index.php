@@ -5,11 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Demo Scrum</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/index.css">
+
+
 </head>
+<style>
+
+    </style>
 
 <body>
 
+    <h1>Overzicht Klanten</h1>
     <div class="container">
         <?php
         include("../src/customer.php");
@@ -17,9 +23,9 @@
         $customer = new Customer();
         $allCustomers = $customer->getAllCustomers();
 
-        echo "<h1>Klanten</h1>";
-        echo "<a href=toevoegen.php>Toevoegen</a>";
-        echo "<table border='1'>
+        // echo "<h1>Overzicht klanten</h1>";
+        echo "<a class=toe href=toevoegen.php>Toevoegen</a>";
+        echo "<table border='0' border-spacing='10px'>
         <tr>
             <th>Naam</th>
             <th>Email</th>
