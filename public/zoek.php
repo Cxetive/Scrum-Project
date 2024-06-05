@@ -39,9 +39,30 @@ input {
 
         // echo "<h1>Overzicht klanten</h1>";
         echo "<div class='zoeken'>";
-        echo "<input type='text' placeholder='voor- achternaam/email'>";
-        echo "<a class='zoek' href='zoek.php'>Zoek een klant</a>";
-        echo "<a class='overview' href='client.php'>Terug naar overzicht</a>";
+        echo "<form method='POST'>";
+        echo "<input type='text' name='search' placeholder='voor- achternaam/email'>";
+        echo "<input type='submit' name='zoek' value='Zoek een klant'>";
+        echo "<input type='submit' name='overview' value='Terug naar overzicht'>";
+        echo "</form>";
+
+        if(isset($_POST["overview"]))
+        {
+            header("Location: client.php");
+        }
+
+        if(isset($_POST["zoek"])) {
+            if ($_POST["search"] == "") 
+            {
+                echo "<p>vul het veld in om te zoeken</p>";
+            } 
+            else 
+            {
+                session_start();
+                $_SESSION["search"] = $_POST["search"];
+                header("Location: zoek.php");
+            }
+        }
+
         echo "</div>";
         echo "<table border='0' border-spacing='10px'>
         <tr>
