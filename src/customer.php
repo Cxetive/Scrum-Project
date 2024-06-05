@@ -23,6 +23,13 @@ class Customer extends Database
         return parent::voerQueryUit($query);
     }
 
+    public function getCustomerSearch($input)
+    {
+        $query = "SELECT * FROM klanten WHERE voornaam = '$input' || achternaam = '$input' || email = '$input'";
+        return parent::voerQueryUit($query);
+    }
+
+
     // Save a new customer
     public function saveCustomer()
     {
