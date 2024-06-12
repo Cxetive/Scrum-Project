@@ -10,21 +10,55 @@
 
 </head>
 <style>
+    .container {
+        align-items: space-between;
+    }
 
-    </style>
+    a[class="zoek"] {
+        margin: 0px 10px 0px 10px;
+    }
+
+    input {
+        padding: 10px 20px;
+        margin-left: 10px;
+    }
+</style>
 
 <body>
 
     <h1>Overzicht Klanten</h1>
     <div class="container">
         <?php
-        include("../src/customer.php");
+        include ("../src/customer.php");
 
         $customer = new Customer();
         $allCustomers = $customer->getAllCustomers();
 
         // echo "<h1>Overzicht klanten</h1>";
-        echo "<a class=toe href=toevoegen.php>Toevoegen</a>";
+        echo "<div class='voegToe'>";
+        echo "<a class='toe' href=toevoegen.php>Toevoegen</a>";
+        echo "</div>";
+        echo "<div class='zoeken'>";
+        echo "<form method='POST'>";
+        echo "<input type='text' name='search' placeholder='voor- achternaam/email'>";
+        echo "<input type='submit' name='zoek' value='Zoek een klant'>";
+        echo "</form>";
+
+
+        if(isset($_POST["zoek"])) {
+            if ($_POST["search"] == "") 
+            {
+                echo "<p>vul het veld in om te zoeken</p>";
+            } 
+            else 
+            {
+                session_start();
+                $_SESSION["search"] = $_POST["search"];
+                header("Location: zoek.php");
+            }
+        }
+
+        echo "</div>";
         echo "<table border='0' border-spacing='10px'>
         <tr>
             <th>Naam</th>

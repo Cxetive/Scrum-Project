@@ -23,6 +23,13 @@ class Customer extends Database
         return parent::voerQueryUit($query);
     }
 
+    public function getCustomerSearch($input)
+    {
+        $query = "SELECT * FROM klanten WHERE voornaam LIKE '%$input%' || achternaam LIKE '%$input%' || email LIKE '%$input%'";
+        return parent::voerQueryUit($query);
+    }
+
+
     // Save a new customer
     public function saveCustomer()
     {
