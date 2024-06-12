@@ -4,7 +4,7 @@ include_once ('database.php');
 class Factuur extends Database
 {
     private $id;
-    private $verzende;
+    private $verzender;
     private $ontvanger;
     private $bedrag;
     private $klus;
