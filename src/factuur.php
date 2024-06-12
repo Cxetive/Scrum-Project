@@ -10,9 +10,9 @@ class Factuur extends Database
     private $klus;
 
     // Get a specific customer
-    public function getCustomer($id)
+    public function getFactuur($verzender)
     {
-        $query = "SELECT * FROM factuur WHERE id = $id";
+        $query = "SELECT * FROM factuur WHERE verzender = $verzender";
         return parent::voerQueryUit($query);
     }
 
@@ -36,46 +36,6 @@ class Factuur extends Database
         $query = "INSERT INTO factuur (verzender, ontvanger, bedrag, klus)
         VALUES ('$verzender', '$ontvanger', '$bedrag', '$klus')";
 
-        // Return true if the query is successful, else return false
-        if (parent::voerQueryUit($query) == false) {
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-
-    // Update a customer
-    public function updateFactuur($id)
-    {
-        // Check if all required fields are filled in
-        if (
-            $this->getVerzender() == "" || $this->getOntvanger() == ""
-            || $this->getBedrag() == "" || $this->getKlus() == ""
-        ) {
-            return false;
-        }
-
-        $verzender = $this->getVerzender();
-        $ontvanger = $this->getOntvanger();
-        $bedrag = $this->getBedrag();
-        $klus = $this->getKlus();
-
-        $query = "UPDATE factuur 
-        SET verzender = '$verzender', ontvanger = '$ontvanger', bedrag = '$bedrag', klus = '$klus'
-        WHERE id = $id";
-        // Return true if the query is successful, else return false
-        if (parent::voerQueryUit($query) == false) {
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-    // Delete a customer
-    public function deleteFactuur($id)
-    {
-        $query = "DELETE FROM factuur WHERE id = $id";
         // Return true if the query is successful, else return false
         if (parent::voerQueryUit($query) == false) {
             return false;
