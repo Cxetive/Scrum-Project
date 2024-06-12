@@ -25,7 +25,7 @@ class Customer extends Database
 
     public function getCustomerSearch($input)
     {
-        $query = "SELECT * FROM klanten WHERE voornaam = '$input' || achternaam = '$input' || email = '$input'";
+        $query = "SELECT * FROM klanten WHERE voornaam LIKE '%$input%' || achternaam LIKE '%$input%' || email LIKE '%$input%'";
         return parent::voerQueryUit($query);
     }
 
