@@ -12,7 +12,7 @@ class Factuur extends Database
     // Get a specific customer
     public function getFactuur($verzender)
     {
-        $query = "SELECT * FROM factuur WHERE verzender = $verzender";
+        $query = "SELECT * FROM factuur WHERE verzender = '$verzender'";
         return parent::voerQueryUit($query);
     }
 

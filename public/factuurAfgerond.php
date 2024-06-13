@@ -10,23 +10,24 @@
 
 <body>
     <?php
-    include("../src/factuur.php");
+    include ("../src/factuur.php");
 
-    if (isset($_POST['verzenden'])) {
-        include("factuur.php");
+    if (isset($_GET['verzenden'])) {
         $factuur = new Factuur();
-        $factuurData = $factruur->getFactuur($_POST['verzender']);
+        $factuurData = $factruur->getFactuur($_GET['verzender']);
+
+        echo "<div class='container'>";
+        echo "<a href='client.php'>Terug</a>";
+        echo "<div class='box'>";
+        echo "<p>Verzender:" . $factuur->getVerzender() . " </p>";
+        echo "<p>Ontvanger:" . $factuur->getOntvanger() . "</p>";
+        echo "<p>bedrag:" . $factuur->getBedrag() . "</p>";
+        echo "<p>Afgeronde Klus:" . $factuur->getKlus() . "</p>";
+        echo "</div>";
+        echo "</div>";
     }
 
     ?>
-<div class="container">
-    <a href="client.php">Terug</a>
-    <div class="box">
-    <h1>Verzender: <?php echo $factuurData[0]['verzender']; ?></h1>
-    <p>Ontvanger: <?php echo $factuurData[0]['ontvanger']; ?></p>
-    <p>bedrag: <?php echo $factuurData[0]['bedrag']; ?></p>
-    </div>
-    </div>
 
 </body>
 
