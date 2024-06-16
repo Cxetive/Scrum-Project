@@ -9,26 +9,23 @@
 </head>
 
 <body>
-    <?php
-    include ("../src/factuur.php");
+        <?php
+        include ("../src/factuur.php");
+            $factuur = new Factuur();
+            $factuurData = $factuur->getFactuur($_GET['verzender']);
 
-    if (isset($_GET['verzenden'])) {
-        $factuur = new Factuur();
-        $factuurData = $factruur->getFactuur($_GET['verzender']);
+            echo "<div class='container'>";
+            echo "<a href='client.php'>Terug</a>";
+            echo "<div class='box'>";
+            echo "<p>Verzender: " . $factuurData[0]['verzender'] . " </p>";
+            echo "<p>Ontvanger: " . $factuurData[0]['ontvanger'] . "</p>";
+            echo "<p>bedrag: " . $factuurData[0]['bedrag']. "</p>";
+            echo "<p>Afgeronde Klus: " . $factuurData[0]['afgerondeklus'] . "</p>";
+            echo "</div>";
+            echo "</div>";
+        
 
-        echo "<div class='container'>";
-        echo "<a href='client.php'>Terug</a>";
-        echo "<div class='box'>";
-        echo "<p>Verzender:" . $factuur->getVerzender() . " </p>";
-        echo "<p>Ontvanger:" . $factuur->getOntvanger() . "</p>";
-        echo "<p>bedrag:" . $factuur->getBedrag() . "</p>";
-        echo "<p>Afgeronde Klus:" . $factuur->getKlus() . "</p>";
-        echo "</div>";
-        echo "</div>";
-    }
-
-    ?>
-
+        ?>
 </body>
 
 </html>

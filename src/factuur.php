@@ -33,7 +33,7 @@ class Factuur extends Database
         $klus = $this->getKlus();
 
 
-        $query = "INSERT INTO factuur (verzender, ontvanger, bedrag, klus)
+        $query = "INSERT INTO factuur (verzender, ontvanger, bedrag, afgerondeklus)
         VALUES ('$verzender', '$ontvanger', '$bedrag', '$klus')";
 
         // Return true if the query is successful, else return false

@@ -26,12 +26,12 @@
 
         $newFactuur = new Factuur();
         $newFactuur->setVerzender($_GET['verzender']);
-        $newFactuur->setOntvanger($GET['ontvanger']);
+        $newFactuur->setOntvanger($_GET['ontvanger']);
         $newFactuur->setBedrag($_GET['bedrag']);
-        $newFactuur->setKlus($_GET['afgerondeKlus']);
+        $newFactuur->setKlus($_GET['klus']);
 
         if ($newFactuur->saveFactuur() == false) {
-            header("Location: factuurAfgerond.php");
+            header("Location: factuurAfgerond.php?verzender=" . $_GET['verzender'] . "");
         } else {
             echo "Factuur is niet opgeslagen";
         }
