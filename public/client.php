@@ -74,6 +74,7 @@
             echo "<td>" . $customer['voornaam'] . " " . $customer['achternaam'] . "</td>";
             echo "<td>" . $customer['email'] . "</td>";
             echo "<td>" . $customer['klus'] . "</td>";
+            echo "<td><a href=factuur.php?customerID=" . $customer['id'] . ">Maak factuur</a></td>";
             echo "<td><a href=detail.php?customerID=" . $customer['id'] . ">Bekijk</a></td>";
             echo "<td><a href=update.php?customerID=" . $customer['id'] . ">Bewerken</a></td>";
             echo "<td><a href=delete.php?customerID=" . $customer['id'] . ">Verwijderen</a></td>";
